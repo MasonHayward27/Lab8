@@ -26,4 +26,32 @@ public class Stack<E> implements StackInterface<E>
     }
 
     //add the required methods here
+    public void push(E element) {
+        head = new Node<>(element, head);
+    }
+    
+    public E pop() {
+        E temp = head.value;
+        head = head.next;
+        return temp;
+    }
+    
+    public E peek() {
+        if (head == null) {
+            return null;
+        }
+        return head.value;
+    }
+    
+    public boolean isEmpty() {
+        boolean result = false;
+        if (head == null) {
+            result = true;
+        }
+        return result;
+    }
+    
+    public void clear() {
+        head = null;
+    }
 }
