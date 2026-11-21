@@ -54,4 +54,34 @@ public class Stack<E> implements StackInterface<E>
     public void clear() {
         head = null;
     }
+    
+    public int search(Object obj) {
+        int result = -1;
+        int index = 1;
+        Node<E> current = head;
+        
+        while (current != null && result == -1) {
+            if (current.value.equals(obj)) {
+                result = index;
+            }
+            current = current.next;
+            index++;
+        }
+        return result;
+    }
+    
+    @Override
+    public String toString() {
+        String result = "";
+        Node<E> current = head;
+        
+        while (current != null) {
+            if (current != head) {
+                result += " ";
+            }
+            result += current.value;
+            current = current.next;
+        }
+        return result;
+    }
 }
